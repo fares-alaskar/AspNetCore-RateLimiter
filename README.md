@@ -32,7 +32,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 ## 🚀 Usage
 1. Apply to a Controller Action
 ```csharp
-[HttpPost]
+[HttpPost("[action]")]
 [RateLimit(maxAttempts: 3, minutes: 1)]
 public IActionResult SubmitForm()
 {
@@ -44,7 +44,7 @@ After the limit is reached, further requests return HTTP 429 Too Many Requests.
 
 2. Use per UserId instead of IP
 ```csharp
-[HttpPost]
+[HttpPost("[action]")]
 [RateLimit(maxAttempts: 5, minutes: 10, useUserId: true)]
 public IActionResult SecureAction()
 {
